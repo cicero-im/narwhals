@@ -1,6 +1,5 @@
 from __future__ import annotations
-
-import random
+import secrets
 
 PANDAS_AND_NUMPY_VERSION = [
     # ("1.0.5", "1.18.5"),  # fails to build in CI  # noqa: ERA001
@@ -54,9 +53,9 @@ PYARROW_VERSION = [
     "16.1.0",
 ]
 
-pandas_version, numpy_version = random.choice(PANDAS_AND_NUMPY_VERSION)
-polars_version = random.choice(POLARS_VERSION)
-pyarrow_version = random.choice(PYARROW_VERSION)
+pandas_version, numpy_version = secrets.choice(PANDAS_AND_NUMPY_VERSION)
+polars_version = secrets.choice(POLARS_VERSION)
+pyarrow_version = secrets.choice(PYARROW_VERSION)
 
 content = f"pandas=={pandas_version}\nnumpy=={numpy_version}\npolars=={polars_version}\npyarrow=={pyarrow_version}\n"
 with open("random-requirements.txt", "w") as fd:
